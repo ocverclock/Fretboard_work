@@ -13,8 +13,14 @@ Le cursus complet est décrit dans
 
 ## Démarrage rapide
 
+Les semaines 1 et 2 commencent sans installation avec
+[My Fretboard Trainer — Note Identification](https://myfretboardtrainer.com/noteidentification/).
+La méthode donne les réglages de cordes, de frettes et d'altérations. Les
+générateurs locaux servent ensuite de supports visuels ou de tests hors ligne.
+
 Prérequis : Python 3.10 ou plus récent. Les SVG ne demandent aucune dépendance
-externe et s'impriment directement au format A4.
+externe et s'impriment directement au format A4. Chaque générateur est
+autonome : télécharger un seul fichier `.py` suffit pour l'exécuter.
 
 ```bash
 git clone https://github.com/ocverclock/Fretboard_work.git
@@ -30,7 +36,7 @@ l'exercice ; n'ouvrir le corrigé qu'après avoir terminé.
 | Étape | Compétence | Générateur | Sortie |
 |---:|---|---|---|
 | 1 | Construire le manche depuis la tonique | `generateur_construction_manche_v1_7.py` | A4 portrait |
-| 2 | Rappeler notes et degrés sans réponse visible | `generateur_entrainement_manche_v1.py` | exercice + corrigé A4 portrait |
+| 2 | Rappeler notes et degrés hors ligne | `generateur_entrainement_manche_v1.py` (facultatif) | exercice + corrigé A4 portrait |
 | 3 | Distinguer majeur et mineur | `generateur_comparaison_majeur_mineur_caged_v1_2.py` | A4 paysage |
 | 4 | Comprendre les gammes relatives | `generateur_relatifs_majeur_mineur_caged.py` | SVG vertical |
 | 5 | Relier accord, arpège, gamme et forme suivante | `generateur_caged_application_v2_2.py` | SVG pédagogique |
@@ -38,8 +44,8 @@ l'exercice ; n'ouvrir le corrigé qu'après avoir terminé.
 | 7 | Réduire le vocabulaire en petites cellules musicales | `generateur_cellules_caged_v1_3_4.py` | A4 paysage + guide |
 
 Les étapes 2 et 6 sont les compléments structurants ajoutés au projet : la
-première transforme la reconnaissance en rappel actif ; la seconde transforme
-la gamme en harmonie et en progression réelle.
+première offre un test hors ligne reproductible ; la seconde transforme la
+gamme en harmonie et en progression réelle.
 
 ## Commandes utiles
 
@@ -145,4 +151,3 @@ python3 -m unittest discover -s tests -v
 ## Licence
 
 Voir [`LICENSE`](LICENSE).
-
