@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Fichiers générés localement : conserver seulement les exemples choisis.
+*_exercice.svg
+*_corrige.svg
+
