@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Générateur pédagogique CAGED V2.1 : CAGED complet -> arpège -> gamme -> liaison.
+Générateur pédagogique CAGED V2.2 : CAGED complet -> arpège -> gamme -> liaison.
 
 Le script peut produire :
 - une seule transition CAGED ;
 - ou les cinq transitions, dans l'ordre réel où elles apparaissent sur le manche.
 
-V2.1 :
+V2.2 :
 - diagramme 1 = CAGED complet avec la forme étudiée mise en évidence ;
 - textes pédagogiques renforcés ;
 - géométrie du manche verrouillée par des tests automatiques ;
@@ -15,10 +15,10 @@ V2.1 :
 Dépendances : bibliothèque standard Python uniquement.
 
 Exemple interactif :
-    python generateur_caged_application_v2.py
+    python generateur_caged_application_v2_2.py
 
 Exemple direct :
-    python generateur_caged_application_v2.py \
+    python generateur_caged_application_v2_2.py \
         --tonalite G --accord majeur --forme toutes --etiquettes mixte
 """
 
@@ -37,7 +37,7 @@ import xml.sax.saxutils as xml_escape
 # Réglages généraux
 # -----------------------------------------------------------------------------
 GENERATOR_VERSION = "2.2.0"
-SCRIPT_NAME = "generateur_caged_application_v2_1.py"
+SCRIPT_NAME = "generateur_caged_application_v2_2.py"
 
 FIRST_FRET = 0
 LAST_FRET = 15
