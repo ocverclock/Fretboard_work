@@ -27,7 +27,7 @@ Chaque notion suit toujours la même boucle :
 3. **Jouer** lentement, sans erreur et au métronome.
 4. **Entendre** la fonction : repos, couleur ou tension.
 5. **Appliquer** sur un accord ou une progression.
-6. **Retrouver** sans carte avec une fiche d'exercice.
+6. **Retrouver** sans carte avec un exercice interactif ou une fiche.
 
 Un générateur n'est donc jamais une fin. Il fournit le support d'une action
 précise et mesurable.
@@ -37,7 +37,7 @@ précise et mesurable.
 | Durée | Travail | Règle |
 |---:|---|---|
 | 3 min | rappel à voix haute | sans guitare et sans fiche |
-| 7 min | fiche de rappel actif | corriger seulement à la fin |
+| 7 min | rappel actif | application web ou fiche, sans regarder la réponse |
 | 8 min | carte du jour sur le manche | jouer lentement et nommer |
 | 8 min | application musicale | accord, boucle ou backing track |
 | 4 min | test et journal | noter score, tempo et difficulté |
@@ -63,31 +63,72 @@ réduit la zone, le tempo ou le nombre de notes.
 
 # Phase 1 — Géographie du manche
 
+## Applications web recommandées
+
+Le support principal des deux premières semaines est
+[**My Fretboard Trainer — Note Identification**](https://myfretboardtrainer.com/noteidentification/).
+L'exercice fonctionne directement dans le navigateur et permet de choisir les
+cordes, les frettes de début et de fin, ainsi que d'inclure ou non les dièses
+et bémols. Le générateur local est conservé comme évaluation imprimable,
+reproductible et utilisable hors ligne ; il n'est plus le point d'entrée du
+parcours.
+
+Deux alternatives peuvent être utilisées sans modifier les objectifs :
+
+- [**GuitarOrb — Guitar Notes**](https://www.guitarorb.com/guitar-notes), en
+  mode `Practice`, pour régler une plage de cordes et de frettes puis passer au
+  mode chronométré ;
+- [**MusicTheory.net — Fretboard Note Identification**](https://www.musictheory.net/exercises/fretboard),
+  pour une interface très sobre et un exercice personnalisable.
+
+My Fretboard Trainer et GuitarOrb emploient la notation internationale :
+
+| Internationale | C | D | E | F | G | A | B |
+|---|---|---|---|---|---|---|---|
+| Française | Do | Ré | Mi | Fa | Sol | La | Si |
+
 ## Semaine 1 — Cordes, demi-tons et notes naturelles
 
 **But** : connaître l'accordage, les cases naturelles et les deux demi-tons
 sans note intermédiaire : B–C et E–F.
 
-Supports :
+Support principal : ouvrir l'exercice **Note Identification**, désactiver
+`Include flats/sharps` et utiliser l'accordage standard. Commencer avec les
+frettes 0 à 5, puis étendre jusqu'à la frette 12 le cinquième jour.
 
-```bash
-python3 generateur_entrainement_manche_v1.py --tonalite C --niveau 1 --serie 1
-```
-
-Travail :
+Réglage des cordes et travail :
 
 - jours 1–2 : cordes 6 et 5 ;
 - jour 3 : cordes 4 et 3 ;
 - jour 4 : cordes 2 et 1 ;
 - jour 5 : mélange des six cordes ;
-- dire le nom avant de jouer la note ;
-- vérifier ensuite au piano, à l'accordeur ou avec le corrigé.
+- dire le nom français **avant** de sélectionner la lettre internationale ;
+- sur la guitare, jouer ensuite la note et contrôler sa justesse à l'accordeur.
 
-**Validation** : 90 % sur la série 1, puis 85 % minimum sur une série inconnue.
+Test hors ligne facultatif :
+
+```bash
+python3 generateur_entrainement_manche_v1.py --tonalite C --niveau 1 --serie 1
+```
+
+Ce script est autonome : le fichier `.py` peut être téléchargé et exécuté seul
+dans n'importe quel dossier. Il produit une série stable avec son corrigé,
+utile pour mesurer la rétention 48 heures plus tard.
+
+**Validation** : 90 % sur 30 questions de l'application, puis 85 % minimum sur
+une nouvelle session 48 heures plus tard. La fiche locale peut remplacer cette
+seconde session, mais elle n'est pas obligatoire.
 
 ## Semaine 2 — Notes chromatiques
 
 **But** : trouver dièses et bémols sans compter depuis le sillet à chaque fois.
+
+Dans **My Fretboard Trainer**, activer `Include flats/sharps`, sélectionner les
+six cordes et travailler des frettes 0 à 12. Garder l'exercice normal jusqu'à
+90 %, puis passer à **Note Identification (Timer)** pour mesurer le temps.
+
+Test hors ligne facultatif pour contrôler séparément l'orthographe avec dièses
+et avec bémols :
 
 ```bash
 python3 generateur_entrainement_manche_v1.py --tonalite G --niveau 2 --serie 2
@@ -433,4 +474,3 @@ Le travail peut ensuite s'étendre à l'harmonique mineure, au blues, aux modes,
 aux accords altérés et aux substitutions. Ces sujets ne doivent pas être
 ajoutés avant que les critères finaux soient solides. Sinon, ils augmentent le
 vocabulaire théorique sans améliorer le jeu réel.
-

@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
@@ -26,6 +29,20 @@ class TrainingGeneratorTests(unittest.TestCase):
             ET.parse(correction)
             self.assertIn('width="210mm"', exercise.read_text(encoding="utf-8"))
 
+    def test_script_runs_alone_without_companion_module(self) -> None:
+        source = Path(__file__).parents[1] / "generateur_entrainement_manche_v1.py"
+        with tempfile.TemporaryDirectory() as directory:
+            isolated = Path(directory) / source.name
+            shutil.copy2(source, isolated)
+            result = subprocess.run(
+                [sys.executable, str(isolated), "--test"],
+                cwd=directory,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+
 
 class HarmonyGeneratorTests(unittest.TestCase):
     def test_major_triad_harmonization(self) -> None:
@@ -44,7 +61,20 @@ class HarmonyGeneratorTests(unittest.TestCase):
             ET.parse(output)
             self.assertIn('width="297mm"', output.read_text(encoding="utf-8"))
 
+    def test_script_runs_alone_without_companion_module(self) -> None:
+        source = Path(__file__).parents[1] / "generateur_harmonisation_progressions_v1.py"
+        with tempfile.TemporaryDirectory() as directory:
+            isolated = Path(directory) / source.name
+            shutil.copy2(source, isolated)
+            result = subprocess.run(
+                [sys.executable, str(isolated), "--test"],
+                cwd=directory,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+
 
 if __name__ == "__main__":
     unittest.main()
-
